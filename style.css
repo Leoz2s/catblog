@@ -1,0 +1,331 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --ff-primary: 'Mulish', sans-serif;
+  --hue: 140;
+  --fc-primary: #FFF;
+  --fc-secondary: #121214;
+  --fc-heading: #202024;
+  --bgc-body: #F4FCFF;
+  --bgc-header: hsl(var(--hue), 91%, 25%);
+  --bgc-footer: hsl(var(--hue), 46%, 40%);
+}
+
+body {
+  font-size: 1.6rem;
+  color: var(--fc-primary);
+  font-family: var(--ff-primary);
+
+  background-color: var(--bgc-body);
+}
+
+h1, h2 {
+  color: var(--fc-heading);
+  font-weight: 700;
+  font-size: 2.4rem;
+}
+
+p {
+  color: var(--fc-secondary);
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  animation-name: move;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: backwards;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+
+header, main, footer {
+  /* width: 89.1vw; */
+  width: 100vw;
+}
+
+header {
+  font-weight: 600;
+
+  background-color: var(--bgc-header);
+
+  padding: 1.6rem 2.8rem;
+
+  height: 7.2rem;
+
+  display: flex;
+  gap: 2.6rem;
+  justify-content: center;
+}
+
+header img {
+  border-radius: 99.9rem;
+}
+
+#logo {
+  background-color: var(--bgc-body);
+
+  padding: .8rem;
+}
+
+.input-wrapper input {
+  padding: 1.2rem 1.6rem;
+
+  background-color: var(--bgc-footer);
+
+  color: var(--fc-primary);
+
+  border-radius: .4rem;
+  border: 0;
+}
+
+header input::placeholder {
+  color: var(--fc-primary);
+}
+
+#avatar {
+  width: 4.2rem;
+  height: 4.2rem;
+}
+
+
+main .page-content, main .related-articles {
+  padding: 0 2rem 2.2rem;
+}
+
+main img {
+
+  width: 100vw;
+  height: 21.9rem;
+
+  object-fit: cover;
+
+  margin-bottom: 3.1rem;
+}
+
+.article-title-rating {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.like-dislike {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.like-dislike img {
+  width: 5.2rem;
+  height: 5.2rem;
+
+  background-color: var(--bgc-header);
+
+  padding: 1rem;
+
+  border-radius: 99.9rem;
+}
+
+.related-articles {
+  display: grid;
+  gap: 1.8rem;
+}
+
+.related-articles h1 {
+  margin: 3.2rem 0 1.4rem;
+}
+
+.card, .card a {
+  display: grid;
+
+  grid-template:
+  "A B B" 2.7rem
+  "A C C" 3rem
+  "A C C" 2.7rem / 15.1rem 1.1rem 15rem;
+  gap: 1rem;
+}
+
+.card img, .card a img {
+  grid-area: A;
+
+  width: 15.1rem;
+  height: 8.4rem;
+
+  margin-right: 1.6rem;
+
+  border-radius: 5px;
+
+  transition-property: transform;
+  transition-duration: 1.25s;
+  transition-delay: 100ms;
+  transition-timing-function: ease-in-out;
+}
+
+.card:hover img {
+  transform: scale(1.1);
+}
+
+.card h2, .card a h2 {
+  grid-area: B;
+
+  font-size: 1.8rem;
+
+}
+
+.card p, .card a p {
+  grid-area: C;
+
+  height: 5.4rem;
+  width: 21.7rem;
+
+  font-size: 1.4rem;
+}
+
+
+footer {
+  text-align: center;
+  
+  background-color: var(--bgc-footer);
+  
+  padding: 1.6rem;
+
+  margin-top: 1rem;
+ 
+  font-weight: 600;
+}
+
+@keyframes move {
+  0% {
+    opacity: 0;
+    transform: translateX(-10%) scale(1.2);
+    
+  }
+
+  50% {
+    transform: translateX(5%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+/* Media querries */
+@media (max-width: 424px) {
+  header {
+    padding: 1.6rem 0rem;
+
+    display: flex;
+    gap: 1rem;
+  }
+
+  main .page-content {
+    padding: 1rem;
+  }
+  main .related-articles {
+    padding: 1rem;
+    gap: 6rem;
+  }
+  .related-articles h1 {
+    margin: 1rem 0 0;
+
+    width: 30rem;
+  }
+  .card a p, .card a h2 {
+    font-size: 1.4rem;
+    width: 14rem;
+    
+  }
+
+  .card {
+    grid-template:
+    "A B B" 2.7rem
+    "A C C" 3rem
+    "A C C" 2.7rem / 15.1rem 1.1rem 10rem;
+    gap: 1rem;
+  }
+
+  footer {
+    margin-top: 4rem;
+  }
+}
+
+@media (min-width: 768px) {
+  header input {
+    width: 50rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  header input {
+    width: 108.3rem;
+  }
+
+  main {
+    display: grid;
+    gap: 3.4rem;
+    justify-content: center;
+    grid-template-areas:
+    "A A B"
+    "A A B"
+    "A A B";
+
+    padding: 4.4rem 0;
+  }
+
+  aside {
+    grid-area: A;
+
+    width: 80.3rem;
+  }
+
+  main img {
+    width: 80.3rem;
+
+    border-radius: 5px;
+  }
+
+  .article-title-rating {
+    display: flex;
+    justify-content: space-between; 
+  }
+
+  main p {
+    width: 80rem;
+  }
+
+  .related-articles {
+    grid-area: B;
+  }
+
+  .related-articles h1 {
+    margin-top: 0;
+  }
+
+  footer {
+    position: fixed;
+
+    left: 0;
+    bottom: 0;
+  }
+
+}
